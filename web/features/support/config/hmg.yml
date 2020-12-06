@@ -1,0 +1,4 @@
+#Arquivo de configuração para execução do sistema em ambiente da Homoloação
+---
+  url: http://rocklov-web:3000
+  mongo:  mongodb://rocklov-db:27017/rocklov
