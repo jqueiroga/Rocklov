@@ -50,7 +50,7 @@ Dado("que tenho um anúncios para ser removido") do |table|
   }
 
   #Utilizando a API de equipo/POST para criar um equipamento na Base de Dados.
-  EquipoService.new.create(@equipo, user_id)
+  EquipoService.new.create(@equipo, user_id)  
 
  #visit current_path
 end
@@ -68,3 +68,4 @@ Então("não devo ver o anúncio no meu dashboard") do
  result = page.has_no_css?(".equipo-list li", text: @equipo[:name]
  expect(result).to be true
 end
+
