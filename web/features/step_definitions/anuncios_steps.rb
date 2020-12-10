@@ -1,4 +1,4 @@
-visit current_pathDado("Login com {string} e {string}") do |email, password|
+Dado("Login com {string} e {string}") do |email, password|
   visit "/"
   @email = email
 
@@ -6,11 +6,11 @@ visit current_pathDado("Login com {string} e {string}") do |email, password|
   @login_page.with(email, password)
 
   #Checkpoint para garantir que o usuário estará no Dashboard após login
-  expect(@dash_Page.on_dash?).to be true
+  expect(@dash_page.on_dash?).to be true
 end
 
 Dado("que acesso o formulário de cadastro de anúncios") do
-  @dash_Page.goto_equipo_form
+  @dash_page.goto_equipo_form
 end
 
 Dado("que eu tenho o seguinte equipamento") do |table|
@@ -25,8 +25,8 @@ Quando("submeto o cadastro desse item") do
 end
 
 Então("devo ver esse item no Dashboard") do
-  expect(@equipos_page.equipo_list).to have_content @anuncio[:nome]
-  expect(@equipos_page.equipo_list).to have_content "R$#{@anuncio[:preco]}/dia"
+  expect(@dash_page.equipo_list).to have_content @anuncio[:nome]
+  expect(@dash_page.equipo_list).to have_content "R$#{@anuncio[:preco]}/dia"
 end
 
 Então("deve conter a mensagem de alerta: {string}") do |expect_alert|
@@ -50,22 +50,28 @@ Dado("que tenho um anúncios para ser removido") do |table|
   }
 
   #Utilizando a API de equipo/POST para criar um equipamento na Base de Dados.
-  EquipoService.new.create(@equipo, user_id)  
+  EquipoService.new.create(@equipo, user_id)
 
- #visit current_path
+  visit current_path
 end
 
 Quando("eu solicito a exclusão do anúncio") do
-  equipo = find(".equipo-list li", text: @equipo[:name])
-  equipo.find(".delete-icon").click
+  @dash_page.request_removal(@equipo[:name])
+  sleep 1 #Think Time
 end
 
 Quando("confirmo a exclusão") do
-  click_on "Sim"
+  @dash_page.confirm_removal
+end
+
+Quando("não confirmo a solicitação") do
+  @dash_page.cancel_removal
 end
 
 Então("não devo ver o anúncio no meu dashboard") do
- result = page.has_no_css?(".equipo-list li", text: @equipo[:name]
- expect(result).to be true
+  expect(@dash_page.has_no_equipo?(@equipo[:name])).to be true
 end
 
+Então("devo ver o anúncio no meu dashboard") do
+  expect(@dash_page.has_no_equipo?(@equipo[:name])).to be false
+end

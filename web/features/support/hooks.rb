@@ -1,6 +1,6 @@
 Before do
   @alert = Alert.new
-  @dash_Page = DashPage.new
+  @dash_page = DashPage.new
   @equipos_page = EquiposPage.new
   @login_page = LoginPage.new
   @signup_page = SignupPage.new

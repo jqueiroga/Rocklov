@@ -8,4 +8,25 @@ class DashPage
   def on_dash?
     page.has_css?(".dashboard")
   end
+
+  def equipo_list
+    return fing(".equipo-list")
+  end
+
+  def has_no_equipo?(name)
+    return page.has_no_css?(".equipo-list li", text: name)
+  end
+
+  def request_removal(name)
+    equipo = find(".equipo-list li", text: name)
+    equipo.find(".delete-icon").click
+  end
+
+  def confirm_removal
+    click_on "Sim"
+  end
+
+  def cancel_removal
+    click_on "Não"
+  end
 end

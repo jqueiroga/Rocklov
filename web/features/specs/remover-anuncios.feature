@@ -9,7 +9,7 @@ Funcionalidade: Cadastro de Anuncios
     Contexto: Login
         * Login com "spider@uol.com" e "pwd123"
 
-    @remover_anuncio @wip
+    @remover_anuncio 
     Cenário: Remover um anúncio
         Dado que tenho um anúncios para ser removido
             | thumb     | telecaster.jpg |
@@ -20,6 +20,7 @@ Funcionalidade: Cadastro de Anuncios
             E confirmo a exclusão
         Então não devo ver o anúncio no meu dashboard
 
+    @wip
     Cenário: Desistir da Exclusão
         Dado que tenho um anúncios para ser removido
             | thumb     | conga.jpg |
