@@ -10,8 +10,8 @@ Funcionalidade: Cadastro
 
         Dado que acesso a página de cadastro
         Quando submeto o seguinte formulário de cadastro:
-            | nome            | email               | senha  |
-            | Jeremias Araújo | jqcaraujo@gmail.com | pwd123 |
+            | nome            | email                 | senha  |
+            | Jeremias Araújo | jqcaraujo@hotmail.com | pwd123 |
         Então sou redirecionado para o Dashboard
 
     @tentativa_cadastro

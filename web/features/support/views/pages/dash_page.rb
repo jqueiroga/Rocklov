@@ -6,11 +6,11 @@ class DashPage
   end
 
   def on_dash?
-    page.has_css?(".dashboard")
+    return page.has_css?(".dashboard")
   end
 
   def equipo_list
-    return fing(".equipo-list")
+    return find(".equipo-list")
   end
 
   def has_no_equipo?(name)
@@ -28,5 +28,13 @@ class DashPage
 
   def cancel_removal
     click_on "Não"
+  end
+
+  def order
+    return find(".notifications p")
+  end
+
+  def order_actions(name)
+    return page.has_css?(".notifications button", text: name)
   end
 end

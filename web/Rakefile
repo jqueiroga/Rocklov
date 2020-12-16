@@ -16,6 +16,8 @@ task :local_seeds do
     { name: "Jeremias Araújo", email: "jqcaraujo@hotmail.com", password: to_md5("pwd123") },
     { name: "Roberto Carlos", email: "rei@yahoo.com", password: to_md5("pwd123") },
     { name: "Anderson Silva", email: "spider@uol.com", password: to_md5("pwd123") },
+    { name: "João Anunciante", email: "joao@anunciante.com", password: to_md5("pwd123") },
+    { name: "Maria Locatária", email: "maria@locataria.com", password: to_md5("pwd123") },
   ]
 
   #Zerando a base e inserindo os 5 usuários da lista, para obter sucesso na execução dos testes
