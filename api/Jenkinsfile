@@ -17,6 +17,17 @@ pipeline {
                 sh 'cd api && rspec'
             }
         }
+        stage('UAT'){
+            steps{
+                echo 'Aguardando Testes de Aceitação'
+                input message: 'Podemos ir para produção'
+            }
+        }
+        stage('Produção'){
+            steps{
+                echo 'API pronta para produção'
+            }
+        }
     }
     post{
         always{
