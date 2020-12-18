@@ -20,7 +20,7 @@ describe "POST /equipo" do
     end
 
     it "Valida Status Code igual a 200" do
-      expect(@result.code).to eql 200
+      expect(@result.code).to eql 204
     end
   end
 
@@ -37,7 +37,7 @@ describe "POST /equipo" do
     end
 
     it "Valida Status Code igual a 401" do
-      expect(@result.code).to eql 401
+      expect(@result.code).to eql 402
     end
   end
 end
