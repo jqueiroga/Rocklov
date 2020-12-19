@@ -5,3 +5,4 @@ logs/*.csv
 logs/*.png
 logs/*.txt
 logs/*.png
+Gemfile.lock
