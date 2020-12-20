@@ -4,4 +4,6 @@ end
 
 Quando("submeto minhas credenciais com {string} e {string}") do |email, password|
   @login_page.with(email, password)
+
+  sleep 10
 end
